@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style type="text/css">
+    
+      #slides-wrapper{height:750px;}
+    
+      </style> 
+      
+<title>Extra-Credit</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  <script>
+  
+      images = ["img.jpg","img2.jpg","img3.jpg", "img4.jpg", "img5.jpg"];
+      var currIndex = 0;
+      
+      $(document).ready(function(){
+          
+          $("#start").click(fadeoutImg);
+          $("#stop").click(function()
+          {
+              $("#slide img").stop().fadeIn();
+          }
+      );
+            
+      }) 
+      
+      function fadeoutImg(){
+          
+         $("#slide img").fadeOut(2000, fadeinImg);
+         
+      }
+      
+      function fadeinImg(){
+     
+            
+          currIndex++; 
+          currIndex = currIndex == images.length?0: currIndex; 
+          $("#slide img").attr("src", "images/" + images[currIndex]);
+          $("#slide img").fadeIn(2000, fadeoutImg);
+      }
+      
+  
+ </script>
+  
+
+
+</head>
+
+<body>
+    
+    <h1>Flower Slideshow</h1>
+
+    
+        
+	    <div id='slides-wrapper'>
+		<div id='slide'>
+			<img src="images/img.jpg"/>
+		</div>
+        </div>
+
+    
+    <input type= "button" id="start" value="Start">
+	<input type= "button" id="stop" value="Stop">
+
+    
+
+</body>
+    
+    
+</html>
+
