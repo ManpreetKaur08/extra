@@ -5,7 +5,18 @@
 <head>
     <style type="text/css">
     
-      #slides-wrapper{height:750px;}
+      #center{
+          height:750px;
+      }
+      
+      body{
+          
+          background-color: #87CEEB; 
+          font-family: Georgia;  
+          text-align: center;
+          font-size: 25px; 
+          color: purple; 
+      }
     
       </style> 
       
@@ -26,7 +37,9 @@
           $("#start").click(fadeoutImg);
           $("#stop").click(function()
           {
+		  
               $("#slide img").stop().fadeIn();
+		  
           }
       );
             
@@ -43,6 +56,7 @@
             
           currIndex++; 
           currIndex = currIndex == images.length?0: currIndex; 
+	      
           $("#slide img").attr("src", "images/" + images[currIndex]);
           $("#slide img").fadeIn(2000, fadeoutImg);
       }
@@ -60,15 +74,17 @@
 
     
         
-	    <div id='slides-wrapper'>
+	    <div id='center'>
 		<div id='slide'>
+			
 			<img src="images/img.jpg"/>
+			
 		</div>
         </div>
 
     
     <input type= "button" id="start" value="Start">
-	<input type= "button" id="stop" value="Stop">
+    <input type= "button" id="stop" value="Stop">
 
     
 
